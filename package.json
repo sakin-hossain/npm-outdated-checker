@@ -3,23 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/cli.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
     "npm-outdated-checker": "./bin/cli.js"
   },
   "type": "module",
   "keywords": [],
-  "author": "sakin-hossain",
-  "license": "MIT",
+  "author": "",
+  "license": "ISC",
   "description": "",
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
     "node-fetch": "^3.3.2",
-    "ora": "^8.2.0",
-    "semver": "^7.7.1",
-    "table": "^6.9.0",
-    "yargs": "^17.7.2"
+    "ora": "^8.2.0"
   }
 }
