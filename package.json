@@ -1,0 +1,22 @@
+{
+  "name": "npm-outdated-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "npm-outdated-checker": "./bin/cli.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "node-fetch": "^3.3.2",
+    "ora": "^8.2.0"
+  }
+}
