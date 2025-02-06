@@ -1,110 +1,155 @@
----
-
 ```markdown
 # npm-outdated-checker
 
-[![npm version](https://badge.fury.io/js/npm-outdated-checker.svg)](https://badge.fury.io/js/npm-outdated-checker)
-[![license](https://img.shields.io/npm/l/npm-outdated-checker)](https://opensource.org/licenses/MIT)
-[![downloads](https://img.shields.io/npm/dt/npm-outdated-checker)](https://www.npmjs.com/package/npm-outdated-checker)
-
-Easily check outdated dependencies in your Node.js project with a clean and user-friendly CLI. Generate output in table, JSON, or Markdown formats for streamlined dependency management.
+`npm-outdated-checker` is a CLI tool that helps you check outdated packages in your Node.js project. It provides useful features like auto-suggesting updates, showing package sizes, checking for breaking changes, and exporting reports in various formats like table, markdown, HTML, and CSV.
 
 ## Features
 
-- 🚀 **Quick Dependency Check**: Lists all outdated dependencies in your project.
-- 📊 **Multiple Output Formats**: Table (default), JSON, and Markdown.
-- 🔗 **Changelog Links**: Automatically fetches changelog links (if available).
-- 🌟 **Simple CLI Interface**: No configuration needed, just run and get results.
-
----
+- **Check Outdated Packages**: Quickly list outdated packages in your project.
+- **Auto Suggest Upgrades**: Automatically suggest the best minor/patch upgrades.
+- **Show Sizes**: Display the size of outdated dependencies.
+- **Check Breaking Changes**: Warn about breaking changes for outdated packages.
+- **Export Reports**: Export outdated package reports in various formats (table, markdown, HTML, CSV).
+- **Peer Dependency Check**: Check for peer dependency conflicts.
 
 ## Installation
 
-You can use `npm-outdated-checker` directly with `npx` or install it globally.
+### Local Installation
 
-### Run with `npx` (Recommended)
-```bash
-npx npm-outdated-checker
-```
+You can install `npm-outdated-checker` globally or locally to use it in your project.
 
-### Install Globally
+To install globally:
+
 ```bash
 npm install -g npm-outdated-checker
 ```
 
----
+To install locally:
+
+```bash
+npm install npm-outdated-checker
+```
+
+### Using `npx`
+
+If you prefer not to install the package globally, you can use `npx` to run it directly without installing:
+
+```bash
+npx npm-outdated-checker
+```
 
 ## Usage
 
-Navigate to your Node.js project folder and run the following command:
-
 ### Basic Command
+
+Run the following command to check for outdated packages in your Node.js project:
+
 ```bash
-npm-outdated-checker
+npx npm-outdated-checker
 ```
 
-### Output Formats
-- **JSON**: Use `--output=json` to get JSON output.
+### Available Options
+
+- `--output`, `-o`: Specify the output format. Available formats:
+  - `table` (default)
+  - `json`
+  - `markdown`
+  - `csv`
+  - `html`
+- `--auto-suggest`, `-a`: Suggest the best upgrade versions (minor/patch) for outdated packages.
+- `--show-sizes`: Display the size impact of outdated dependencies.
+- `--check-breaking`: Warn about breaking changes in outdated packages.
+- `--peer-check`: Check for peer dependency conflicts.
+- `--export`: Export the report in different formats (markdown, html, csv).
+
+### Example Commands
+
+- **Check outdated packages in table format**:
   ```bash
-  npm-outdated-checker --output=json
+  npx npm-outdated-checker --output table
   ```
-- **Markdown**: Use `--output=markdown` to generate Markdown tables.
+
+- **Check outdated packages and show suggested upgrades**:
   ```bash
-  npm-outdated-checker --output=markdown
+  npx npm-outdated-checker --auto-suggest
   ```
 
----
+- **Check outdated packages and display their sizes**:
+  ```bash
+  npx npm-outdated-checker --show-sizes
+  ```
 
-## Example Output
+- **Check outdated packages and warn about breaking changes**:
+  ```bash
+  npx npm-outdated-checker --check-breaking
+  ```
 
-### Default Table Output
-```plaintext
-Outdated Dependencies:
+- **Export the outdated packages report as markdown**:
+  ```bash
+  npx npm-outdated-checker --export markdown
+  ```
 
-┌────────────┬──────────┬─────────┬────────┬───────────┐
-│ Package    │ Current  │ Wanted  │ Latest │ Changelog │
-├────────────┼──────────┼─────────┼────────┼───────────┤
-│ chalk      │ 4.0.0    │ 4.1.0   │ 5.0.0  │ N/A       │
-│ ora        │ 5.0.0    │ 5.1.0   │ 6.0.0  │ N/A       │
-└────────────┴──────────┴─────────┴────────┴───────────┘
+- **Export the outdated packages report as CSV**:
+  ```bash
+  npx npm-outdated-checker --export csv
+  ```
+
+- **Export the outdated packages report as HTML**:
+  ```bash
+  npx npm-outdated-checker --export html
+  ```
+
+### Example Output (Table Format)
+
+```bash
+Package  Current Version  Latest Version  Wanted Version
+------------------------------------------------------
+express  4.16.0          4.18.0          4.18.0
+react    17.0.0          18.0.0          18.0.0
 ```
 
-### Markdown Output
+### Example Output (Markdown Format)
+
 ```markdown
-### Outdated Dependencies
+# Outdated Packages Report
 
-| Package | Current | Wanted | Latest | Changelog |
-|---------|---------|--------|--------|-----------|
-| chalk   | 4.0.0   | 4.1.0  | 5.0.0  | N/A       |
-| ora     | 5.0.0   | 5.1.0  | 6.0.0  | N/A       |
+## express
+- **Current Version**: 4.16.0
+- **Latest Version**: 4.18.0
+- **Wanted Version**: 4.18.0
+
+## react
+- **Current Version**: 17.0.0
+- **Latest Version**: 18.0.0
+- **Wanted Version**: 18.0.0
 ```
 
----
+## Development
 
-## How It Works
+If you want to contribute or modify the project, you can run it locally by cloning the repository:
 
-1. Runs `npm outdated` under the hood.
-2. Fetches outdated dependencies and their details.
-3. Optionally queries changelog or release links for each package.
+```bash
+git clone https://github.com/yourusername/npm-outdated-checker.git
+cd npm-outdated-checker
+npm install
+npm run dev
+```
 
----
+### Running Tests
 
-## Contribution
+To run the tests, use:
 
-Contributions are welcome! If you'd like to improve this package, feel free to submit an issue or a pull request on [GitHub](https://github.com/your-username/npm-outdated-checker).
-
----
+```bash
+npm test
+```
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
----
-
-### Notes:
-1. Replace `your-username` in the GitHub link with your actual GitHub username or repository link.
-2. You can also include installation badges or add advanced usage if needed.
-3. After adding this, you’re good to publish on npm!
-
-Would you like help setting up your GitHub repository or automating the release process? 😊
+### Explanation:
+- **Installation** section covers both global and local installation methods, as well as usage via `npx`.
+- **Usage** section provides commands for checking outdated packages, as well as using features like suggested upgrades, sizes, breaking changes, and exporting reports.
+- **Example Output** is included for different formats (table, markdown) to give users a preview of the output.
+- **Development** section explains how to contribute or run the project locally.
